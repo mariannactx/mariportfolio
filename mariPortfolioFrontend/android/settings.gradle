@@ -1,0 +1,3 @@
+rootProject.name = 'mariPortfolio'
+
+include ':app'
