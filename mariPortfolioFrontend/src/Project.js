@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   Dimensions,
   Image,
@@ -8,6 +8,7 @@ import {
   View
 } from 'react-native';
 import { defaultStyles } from './styles';
+import PropTypes from 'prop-types';
 
 // Get screen dimensions
 const { width, height } = Dimensions.get('window');
@@ -16,12 +17,12 @@ const cols = 3, rows = 3;
 
 export default class Project extends Component {
   // Component prop types
-//   static propTypes = {
-//     // Project object with title, url, and thumb
-//     project: PropTypes.object.isRequired,
-//     // Called when user taps on a thumb
-//     onOpen: PropTypes.func.isRequired,
-//   }
+  static propTypes = {
+    // Project object with title, url, and thumb
+    project: PropTypes.object.isRequired,
+    // Called when user taps on a thumb
+    onOpen: PropTypes.func.isRequired,
+  }
   render() {
     const { project, project: { title, url, thumb }, onOpen } = this.props;
     return (

@@ -12,11 +12,20 @@ import {
     View
 } from 'react-native';
 import { defaultStyles } from './styles'
+import PropTypes from 'prop-types';
 
 const { width, height } = Dimensions.get('window');
 const defaultHeight = height * 0.67;
 
 export default class ProjectPopup extends Component {
+
+  static propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    // Project object that has title, stack, thumb, url
+    project: PropTypes.object,
+    // Gets called when popup closed
+    onClose: PropTypes.func,
+  }
 
   state = {
     position: new Animated.Value(this.props.isOpen ? 0 : height),
@@ -241,7 +250,7 @@ export default class ProjectPopup extends Component {
             {/* Stack */}
             <View>
                 <Text style={styles.sectionHeader}>Stack</Text>
-                {project.stack.map((tech, index) => <Text>{tech}</Text> )}
+                {project.stack.map((tech, index) => <Text key={index}>{tech}</Text> )}
             </View>
 
           </View>
